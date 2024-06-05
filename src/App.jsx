@@ -1,8 +1,7 @@
 import { useState } from "react";
 import Modal from "./components/Modal";
 import "./App.css";
-import { projects } from "./projects";
-import Award from "./components/icons/Award";
+import MobilePortFolio from "./components/MobilePortfolio";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -10,16 +9,9 @@ function App() {
 
   return (
     <main>
-      <Award />
-      <h1 className="text-main-500 font-name">ee</h1>
-      {projects.map((project) => {
-        return (
-          <img
-            src={project.files[1].thumbnail.src}
-            alt={project.files[1].thumbnail.alt}
-          />
-        );
-      })}
+      <div className="bg-main-950">
+        <MobilePortFolio />
+      </div>
     </main>
   );
 }
