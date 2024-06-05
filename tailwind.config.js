@@ -2,7 +2,20 @@
 export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        sans: ["DM Sans", "sans-serif"],
+        heading: ["Poppins", "sans-serif"],
+        name: ["Montserrat", "sans-serif"],
+      },
+      colors: {
+        "main-50": "#EED8FF",
+        "main-100": "#E8CBFF",
+        "main-500": "#BC67FF",
+        "main-600": "#562E76",
+        "main-900": "#191921",
+      },
+    },
   },
   plugins: [],
 };
