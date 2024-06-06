@@ -41,6 +41,7 @@ const MobilePortfolio = () => {
         {projects[selectedProject].files.map((file, index) => {
           return (
             <MobileFileButton
+              key={index}
               title={index === 0 ? "index.html" : "README.txt"}
               date={file.date}
               href={projects[selectedProject].netlify}
