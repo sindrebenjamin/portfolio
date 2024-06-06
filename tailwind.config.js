@@ -12,6 +12,7 @@ export default {
         "main-50": "#EED8FF",
         "main-100": "#E8CBFF",
         "main-500": "#BC67FF",
+        "main-550": "#9663BD",
         "main-600": "#562E76",
         "main-900": "#191921",
         "main-950": "#161418",

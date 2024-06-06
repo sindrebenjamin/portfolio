@@ -4,8 +4,12 @@ import MolbileItemButton from "./MobileItemButton";
 import MobileFileButton from "./MobileFileButton";
 import MobilePage from "./MobilePage";
 import { projects } from "../projects";
+import ButtonLink from "./ButtonLink";
+import GitHub from "./icons/GitHub";
+import Figma from "./icons/Figma";
+import PortfolioImage from "./PortfolioImage";
 
-const MobilePortFolio = () => {
+const MobilePortfolio = () => {
   const [selectedProject, setSelectedProject] = useState(0);
   const [page, setPage] = useState(0);
 
@@ -46,13 +50,56 @@ const MobilePortFolio = () => {
         })}
       </MobilePage>
       <MobilePage
+        title="README.txt"
         onClick={() => setPage(1)}
         translate={page === 0 ? 200 : page === 1 ? 100 : 0}
       >
-        test
+        <div className="flex flex-col gap-6">
+          <div className="flex flex-col gap-6 md:flex-row">
+            {/* Text */}
+            <div className="flex flex-col gap-2">
+              <h3 className="font-bold">{projects[selectedProject].title}</h3>
+              <p>{projects[selectedProject].files[1].content}</p>
+            </div>
+
+            {/* Image */}
+
+            <a target="_blank" href={projects[selectedProject].netlify}>
+              <PortfolioImage>
+                <img
+                  src={projects[selectedProject].files[1].thumbnail.src}
+                  alt={projects[selectedProject].files[1].thumbnail.alt}
+                />
+              </PortfolioImage>
+            </a>
+          </div>
+
+          {/* Buttons */}
+          <div className="flex flex-col sm:flex-row gap-2">
+            <ButtonLink style="filled" href={projects[selectedProject].netlify}>
+              Demo
+            </ButtonLink>
+            <ButtonLink
+              style="outlined"
+              href={projects[selectedProject].github}
+            >
+              GitHub
+              <GitHub />
+            </ButtonLink>
+            {projects[selectedProject].figma && (
+              <ButtonLink
+                style="outlined"
+                href={projects[selectedProject].figma}
+              >
+                Figma
+                <Figma />
+              </ButtonLink>
+            )}
+          </div>
+        </div>
       </MobilePage>
     </>
   );
 };
 
-export default MobilePortFolio;
+export default MobilePortfolio;

@@ -4,15 +4,15 @@ const MobilePage = ({ title, children, onClick, translate }) => {
   return (
     <div
       style={{ transform: `translateX(${translate}%)` }}
-      className="fixed top-0 left-0 bg-main-950 w-full h-screen z-[1000] ease-out duration-100 transition-transform"
+      className="text-main-100 fixed top-0 left-0 bg-main-950 w-full h-screen z-[1000] ease-in duration-200 transition-transform overflow-auto"
     >
-      <div className="flex gap-6 bg-main-900">
+      <div className="flex gap-6 bg-main-900 p-4">
         <button onClick={onClick}>
-          <ArrowLeft />
+          <ArrowLeft color="#CEB4E2" />
         </button>
         {title}
       </div>
-      {children}
+      <div className="p-4">{children}</div>
     </div>
   );
 };
