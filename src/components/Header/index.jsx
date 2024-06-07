@@ -35,7 +35,9 @@ const Header = () => {
   }
 
   return (
-    <header className={`w-full z-[12] p-4 sm:p-6 transition-all duration-100`}>
+    <header
+      className={`w-full z-[12] p-4 sm:p-6 transition-all duration-100 relative overflow-hidden`}
+    >
       <div className="flex justify-between items-center max-w-[1200px] m-auto">
         <Logo />
         <div className="items-center gap-8 md:gap-6">
@@ -46,7 +48,7 @@ const Header = () => {
         {/* Overlay */}
         <div
           onClick={handleCloseNav}
-          className={`${overlayClasses} bg-black bg-opacity-60 h-screen w-full left-0 top-0 absolute transition-all duration-200`}
+          className={`${overlayClasses} bg-black bg-opacity-60 h-screen w-full left-0 top-0 fixed transition-all duration-200`}
         ></div>
       </div>
     </header>
