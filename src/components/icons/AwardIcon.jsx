@@ -1,6 +1,7 @@
-const Award = ({ color }) => {
+const AwardIcon = ({ color }) => {
   return (
     <svg
+      className="min-h-[36px] min-w-[36px]"
       width={36}
       height={37}
       viewBox="0 0 36 37"
@@ -15,4 +16,4 @@ const Award = ({ color }) => {
   );
 };
 
-export default Award;
+export default AwardIcon;

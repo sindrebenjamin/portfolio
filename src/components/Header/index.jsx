@@ -35,7 +35,7 @@ const Header = () => {
   }
 
   return (
-    <header className={`w-full z-[12] p-4 transition-all duration-100`}>
+    <header className={`w-full z-[12] p-4 sm:p-6 transition-all duration-100`}>
       <div className="flex justify-between items-center max-w-[1200px] m-auto">
         <Logo />
         <div className="items-center gap-8 md:gap-6">

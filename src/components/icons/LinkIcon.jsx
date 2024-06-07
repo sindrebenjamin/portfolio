@@ -1,6 +1,7 @@
 const LinkIcon = ({ color }) => {
   return (
     <svg
+      className="min-h-[22px] min-w-[22px]"
       width={22}
       height={22}
       viewBox="0 0 22 22"

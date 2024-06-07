@@ -1,6 +1,7 @@
 const GitHub = ({ color }) => {
   return (
     <svg
+      className="min-h-[18px] min-w-[18px]"
       width={18}
       height={18}
       viewBox="0 0 18 18"

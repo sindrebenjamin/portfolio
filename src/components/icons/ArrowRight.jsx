@@ -1,6 +1,7 @@
 const ArrowRight = ({ color }) => {
   return (
     <svg
+      className="min-h-[24px] min-w-[24px]"
       width={24}
       height={24}
       viewBox="0 0 24 24"
