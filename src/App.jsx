@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Modal from "./components/Modal";
 import "./App.css";
-import MobilePortFolio from "./components/MobilePortfolio";
+import MobilePortfolio from "./components/MobilePortfolio";
 import Header from "./components/Header";
 import Section from "./components/Section";
 import PortfolioImage from "./components/PortfolioImage";
@@ -9,6 +9,7 @@ import StyledH2 from "./components/StyledH2";
 import Award from "./components/Award";
 import SocialGitHub from "./components/SocialGitHub";
 import SocialLinkedIn from "./components/SocialLinkedIn";
+import DesktopPortfolio from "./components/DesktopPortfolio";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -52,7 +53,8 @@ function App() {
       </Section>
       <Section className="bg-main-950">
         <StyledH2 id="portfolio">Portfolio</StyledH2>
-        <MobilePortFolio />
+        <MobilePortfolio />
+        <DesktopPortfolio />
       </Section>
       <Section>
         <StyledH2 id="awards">Awards</StyledH2>
