@@ -35,10 +35,8 @@ const Header = () => {
   }
 
   return (
-    <header
-      className={`w-full z-[12] px-4 sm:px-6 py-3 transition-all duration-100`}
-    >
-      <div className="flex justify-between items-center ">
+    <header className={`w-full z-[12] p-4 transition-all duration-100`}>
+      <div className="flex justify-between items-center max-w-[1200px] m-auto">
         <Logo />
         <div className="items-center gap-8 md:gap-6">
           <MenuButton isOpen={isOpen} setIsOpen={setIsOpen} />
