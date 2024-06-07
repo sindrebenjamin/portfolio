@@ -1,30 +1,13 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 import Logo from "./Logo";
 import Navigation from "./Navigation";
 import MenuButton from "./MenuButton";
+import { useScrollLock } from "../../hooks/useScrollLock";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
-
-  useEffect(() => {
-    if (isOpen) {
-      document.body.style.overflow = "hidden";
-      document.documentElement.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "unset";
-      document.documentElement.style.overflow = "unset";
-      document.body.style.overflowX = "hidden";
-      document.documentElement.style.overflowX = "hidden";
-    }
-
-    return () => {
-      document.body.style.overflow = "unset";
-      document.documentElement.style.overflow = "unset";
-      document.body.style.overflowX = "hidden";
-      document.documentElement.style.overflowX = "hidden";
-    };
-  }, [isOpen]);
+  useScrollLock(isOpen);
 
   const overlayClasses = isOpen
     ? "visible opacity-100 z-[9]"

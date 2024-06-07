@@ -8,10 +8,12 @@ import ButtonLink from "./ButtonLink";
 import GitHub from "./icons/GitHub";
 import Figma from "./icons/Figma";
 import PortfolioImage from "./PortfolioImage";
+import { useScrollLock } from "../hooks/useScrollLock";
 
 const MobilePortfolio = () => {
   const [selectedProject, setSelectedProject] = useState(0);
   const [page, setPage] = useState(0);
+  useScrollLock(page !== 0);
 
   function handleOpenProject(index) {
     setSelectedProject(index);
