@@ -24,7 +24,7 @@ const Navigation = ({ isOpen, setIsOpen }) => {
 
   return (
     <nav
-      className={`${navClasses} text-main-100 flex flex-col md:flex-row justify-center md:justify-end h-screen md:h-fit w-[80%] md:w-full top-0 right-0 absolute md:static gap-6 items-center bg-primary-color md:bg-transparent z-10 duration-200 transition-transform transform whitespace-nowrap bg-main-900`}
+      className={`${navClasses} text-main-100 flex flex-col md:flex-row justify-center md:justify-end h-screen md:h-fit w-[80%] md:w-full top-0 right-0 absolute md:static gap-6 items-center bg-primary-color md:bg-transparent z-20 duration-200 transition-transform transform whitespace-nowrap bg-main-900`}
     >
       {links.map((link) => {
         return (

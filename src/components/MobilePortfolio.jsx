@@ -19,7 +19,7 @@ const MobilePortfolio = () => {
   }
 
   return (
-    <>
+    <div className="md:hidden">
       <div className="grid grid-cols-2 gap-2">
         {projects.map((project, index) => {
           return (
@@ -99,7 +99,7 @@ const MobilePortfolio = () => {
           </div>
         </div>
       </MobilePage>
-    </>
+    </div>
   );
 };
 
