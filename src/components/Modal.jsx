@@ -1,75 +1,68 @@
-import React, { useRef, useState, useEffect } from "react";
+import CloseButton from "./CloseButton";
+import File from "./icons/File";
+import PortfolioImage from "./PortfolioImage";
+import ButtonLink from "./ButtonLink";
+import GitHub from "./icons/GitHub";
+import Figma from "./icons/Figma";
 
-const Modal = ({ showModal, onClose }) => {
-  const modalRef = useRef(null);
-  const [position, setPosition] = useState({ x: 0, y: 0 });
-  const [dragging, setDragging] = useState(false);
-  const [rel, setRel] = useState(null);
-
-  useEffect(() => {
-    if (showModal && modalRef.current) {
-      const centerX = window.innerWidth / 2 - modalRef.current.offsetWidth / 2;
-      const centerY =
-        window.innerHeight / 2 - modalRef.current.offsetHeight / 2;
-      setPosition({ x: centerX, y: centerY });
-    }
-  }, [showModal]);
-
-  const onMouseDown = (e) => {
-    if (e.target.className.includes("draggable-header")) {
-      if (e.button !== 0) return;
-      const pos = {
-        x: e.pageX - modalRef.current.offsetLeft,
-        y: e.pageY - modalRef.current.offsetTop,
-      };
-      setRel(pos);
-      setDragging(true);
-      e.stopPropagation();
-      e.preventDefault();
-    }
-  };
-
-  const onMouseUp = (e) => {
-    setDragging(false);
-    e.stopPropagation();
-    e.preventDefault();
-  };
-
-  const onMouseMove = (e) => {
-    if (!dragging) return;
-    setPosition({
-      x: e.pageX - rel.x,
-      y: e.pageY - rel.y,
-    });
-    e.stopPropagation();
-    e.preventDefault();
-  };
-
+const Modal = ({ showModal, onClose, project }) => {
   return (
     <div
-      className={`fixed inset-0 flex items-center justify-center ${
-        showModal ? "" : "hidden"
-      }`}
-      onMouseMove={onMouseMove}
-      onMouseUp={onMouseUp}
+      className={`${
+        !showModal && "hidden"
+      } fixed z-40 h-screen w-full top-0 left-0 flex justify-center items-center`}
     >
+      {/* Overlay */}
       <div
-        ref={modalRef}
-        className="bg-white p-6 rounded shadow-lg w-1/3"
-        style={{
-          left: `${position.x}px`,
-          top: `${position.y}px`,
-          position: "absolute",
-        }}
-        onMouseDown={onMouseDown}
+        className="h-screen w-full bg-black bg-opacity-40 absolute"
+        onClick={onClose}
+      ></div>
+      {/* Modal */}
+      <div
+        className={`bg-main-900 rounded-lg z-50 w-full m-6 max-w-[1000px] border-2 border-main-100`}
       >
-        <div className="flex justify-between items-center border-b pb-2 mb-4 draggable-header cursor-move">
-          <h2 className="text-lg font-bold">Draggable Modal</h2>
-          <button className="text-red-500" onClick={onClose}>
-            &times;
-          </button>
+        <div className="flex bg-main-100 text-main-600 font-bold p-4 items-center justify-between">
+          <div className="flex gap-2 items-center">
+            <File color="#562e76" />
+            <p>README.txt</p>
+          </div>
+          <CloseButton onClick={onClose} />
         </div>
-        <p>This is a draggable modal. Drag it from the header.</p>
+
+        {/* Window inside */}
+        <div className="p-4">
+          <div className="flex items-center justify-between gap-4">
+            {/* Text */}
+            <div className="max-w-[500px]">
+              <p className="font-bold mb-2">{project.title}</p>
+              <p>{project.files[1].content}</p>
+            </div>
+            {/* Thumbnail */}
+            <a className="max-w-[400px]" target="_blank" href={project.netlify}>
+              <PortfolioImage>
+                <img
+                  src={project.files[1].thumbnail.src}
+                  alt={project.files[1].thumbnail.alt}
+                />
+              </PortfolioImage>
+            </a>
+          </div>
+          <div className="flex gap-2 mt-6">
+            <ButtonLink style="filled" href={project.netlify}>
+              Demo
+            </ButtonLink>
+            <ButtonLink style="outlined" href={project.github}>
+              GitHub
+              <GitHub />
+            </ButtonLink>
+            {project.figma && (
+              <ButtonLink style="outlined" href={project.figma}>
+                Figma
+                <Figma />
+              </ButtonLink>
+            )}
+          </div>
+        </div>
       </div>
     </div>
   );

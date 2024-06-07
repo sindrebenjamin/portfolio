@@ -1,6 +1,9 @@
 import { create } from "zustand";
 
 export const usePortfolioStore = create((set) => ({
-  selectedProject: 0,
-  updateProject: (newProject) => set({ selectedProject: newProject }),
+  selectedProject: null,
+  previouslySelected: null,
+  setSelectedProject: (newProject) => set({ selectedProject: newProject }),
+  setPreviouslySelected: (newProject) =>
+    set({ previouslySelected: newProject }),
 }));
